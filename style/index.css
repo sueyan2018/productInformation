@@ -3,6 +3,8 @@
 }
 .index_content{  
     min-height: 1200px;
+    width: 1400px;
+    margin: 0 auto;
 }
 
 @media (max-width: 1400px) {
@@ -52,11 +54,16 @@ a.left_group_item{
 }
 
 .content_right{
-    width: 900px;
+    width: 1130px;
 }
 @media (min-width: 1400px){
     .content_right {
-        width: 1000px;
+        width: 1130px;
+    }
+}
+@media (max-width: 1400px){
+    .content_right {
+        width: 900px;
     }
 }
 
@@ -93,6 +100,10 @@ a.left_group_item{
     color: #fff;
     margin-left: -4px;
     font-size: 14px;
+}
+
+.cl{
+    clear: both;
 }
 
 .right_display{
