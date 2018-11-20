@@ -1,0 +1,143 @@
+.index_header{
+    min-height: 100px; 
+}
+.index_content{  
+    min-height: 1200px;
+}
+
+@media (max-width: 1400px) {
+    .index_content {
+        width: 1170px !important;
+        margin: 0 auto;
+    }
+}
+.content_left{
+    width: 230px;
+    border: 1px solid #ddd;
+}
+.left_hot, .left_catagory, .left_brand{
+    padding-left: 0;
+    margin-bottom: 18px;
+}
+a.left_item_title{
+    color: #428bca;
+}
+.left_item_title{
+    display: block;
+    padding: 6px 12px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    font-weight: bold;
+}
+a.left_group_item{
+    color: #555;
+}
+.left_group_item{
+    position: relative;
+    background: #fff;
+    display: block;
+    padding: 12px;
+    background-color: #fff;
+    border: 0;
+    font-size: 14px;
+}
+.left_hot_item{
+
+}
+
+.left_catagory_item{
+    width:50%;
+    float:left;
+}
+
+.content_right{
+    width: 900px;
+}
+@media (min-width: 1400px){
+    .content_right {
+        width: 1000px;
+    }
+}
+
+.search_display {
+    margin-left: 5px;
+    width: 490px;
+    padding: 0 0 20px 0;
+}
+.search_result{
+    padding: 9px 0;
+    font-weight: 700;
+    margin-right: 10px;
+    color: #8f9498;
+    font-size: 14px;
+}
+.search_box{
+    padding: 0 0 20px 0;
+}
+.mall_search{
+
+}
+.mall_search input {
+    width: 252px;
+    height: 40px;
+    border: 1px solid #b2b0b1;
+    margin-top: -4px;
+    padding-left: 10px;
+}
+.mall_search button{
+    width: 46px;
+    height: 40px;
+    border: none;
+    background: #e84144;
+    color: #fff;
+    margin-left: -4px;
+    font-size: 14px;
+}
+
+.right_display{
+
+}
+.display_list{
+
+}
+.display_list li{
+    width: 215px;
+    height: 320px;
+    float: left;
+    text-align: center;
+    margin: 5px;
+    padding: 0;
+    border: 1px solid #ddd;
+}
+.display_list .list_item{
+    position: relative;
+}
+.list_item img{
+    width: 180px;
+    height: 180px;
+    margin: 10px;
+}
+.list_item .item_name{
+    margin: 0 5px 10px;
+}
+.mall_list li p {
+    height: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+}
+.item_name .name_chinese{
+    
+}
+.item_name .name_english{
+    color: #979797;
+}
+.list_item .price{
+    color: #333;
+    width: auto;
+    height: 35px;
+    line-height: 35px;
+    background: #d2d2d2;
+}
