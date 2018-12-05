@@ -44,6 +44,11 @@ a.left_group_item{
     border: 0;
     font-size: 14px;
 }
+.left_brand_section{
+    height:400px;
+    overflow:auto; 
+    position: relative;
+}
 .left_hot_item{
 
 }
