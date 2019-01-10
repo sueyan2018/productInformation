@@ -149,11 +149,14 @@ a.left_group_item{
 }
 .item_name .name_english{
     color: #979797;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis; 
 }
 .list_item .price{
-    color: #333;
+    color: rgb(255, 255, 255);
     width: auto;
     height: 35px;
     line-height: 35px;
-    background: #d2d2d2;
+    background: #428bca;
 }
