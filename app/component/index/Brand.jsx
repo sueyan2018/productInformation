@@ -6,16 +6,16 @@ import Item from './Item'
 class Brand extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {data : []};
+        this.state = { data: [] };
     }
 
     componentDidMount() {
         console.log(this.props.url);
         var brandThis = this;
-        fetch(this.props.url).then(res=>{
-            res.json().then((dataJson)=>{
+        fetch(this.props.url).then(res => {
+            res.json().then((dataJson) => {
                 console.log(dataJson);
-                brandThis.setState({data : dataJson});
+                brandThis.setState({ data: dataJson });
             })
         })
     }
@@ -27,7 +27,13 @@ class Brand extends React.Component {
                 ReactDOM.render(<Item url="http://localhost:8080/procurement/itemList" pageNumber="1" brand={brand.brandId} />, document.getElementById('item'));
             }}>{brand.brandName}</a>
         });
-        return <div>{list}</div>;
+        return (
+            <div>
+                <a className="left_group_item" title="所有品牌" onClick={() => {
+                    ReactDOM.render(<Item url="http://localhost:8080/procurement/itemList" pageNumber="1" />, document.getElementById('item'));
+                }}>所有品牌</a>
+                {list}
+            </div>);
     }
 }
 

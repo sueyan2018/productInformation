@@ -131,7 +131,7 @@ a.left_group_item{
 }
 .list_item img{
     width: 180px;
-    height: 180px;
+    height: 150px;
     margin: 10px;
 }
 .list_item .item_name{
@@ -159,4 +159,22 @@ a.left_group_item{
     height: 35px;
     line-height: 35px;
     background: #428bca;
+}
+
+.flex_line {
+    display:flex;
+    display:-webkit-flex;
+}
+.icons{
+    margin-top: 15px;
+    flex-grow : 1;
+    cursor:pointer;
+}
+.dialog_content{
+    float:left;
+    width:60%;
+}
+.dialog_font{
+    font-size: 18px;
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
 }

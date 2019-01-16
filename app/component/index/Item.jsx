@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../public/css/index.pcss';
-import SearchInput from './SearchInput'
+import CustomizedDialogDemo from './Dialog'
+import Button from '@material-ui/core/Button';
 
 class Item extends React.Component {
     constructor(props) {
@@ -8,21 +9,48 @@ class Item extends React.Component {
         this.state = {
             data: {
                 itemList: []
-            }
+            },
+            InputValue: "",
         };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps.url);
+        this.getItems(nextProps);
     }
 
     componentDidMount() {
         console.log(this.props.url);
+        this.getItems(this.props);
+    }
+
+    handleGetInputValue = (event) => {
+        this.setState({
+            InputValue: event.target.value,
+        })
+    };
+
+    handlePost = () => {
+        const { InputValue } = this.state;
+        let props = {
+            url :"http://localhost:8080/procurement/itemList",
+            itemName : InputValue,
+            pageNumber : 1,
+        }
+        this.getItems(props);
+    };
+
+    getItems = (props) =>{
+        console.log(props.url);
         var itemThis = this;
 
         var opts = {
             method: "POST",   //请求方法
             body: JSON.stringify({
-                "brand": this.props.brand,
-                "catalog": this.props.catalog,
-                "itemName": this.props.itemName,
-                "pageNumber": this.props.pageNumber,
+                "brand": props.brand,
+                "catalog": props.catalog,
+                "itemName": props.itemName,
+                "pageNumber": props.pageNumber,
             }),   //请求体
 
             headers: {
@@ -32,7 +60,7 @@ class Item extends React.Component {
         }
 
 
-        fetch(this.props.url, opts).then(res => {
+        fetch(props.url, opts).then(res => {
             res.json().then((dataJson) => {
                 console.log(dataJson);
                 itemThis.setState({ data: dataJson });
@@ -54,6 +82,9 @@ class Item extends React.Component {
                         <div className="price">
                             参考价格： ￥{item.itemAmount}
                         </div>
+                        <div>
+                            <CustomizedDialogDemo item={item} />
+                        </div>
                     </li>
                 )
             });
@@ -69,12 +100,10 @@ class Item extends React.Component {
                         <p className="search_result float_left">{this.state.data.itemCount}个搜索结果</p>
                     </div>
                     <div className="search_box float_right">
-                        <form action="/mall/index" method="get">
-                            <div className="mall_search float_right">
-                                <input type="text" name="gname" placeholder="输入商品名字" />
-                                <button type="submit">搜索</button>
-                            </div>
-                        </form>
+                        <div className="mall_search float_right">
+                            <input type="text" name="gname" placeholder="输入商品名字" value={this.state.InputValue} onChange={this.handleGetInputValue} />
+                            <button onClick={this.handlePost}>搜索</button>
+                        </div>
                         {/* <SearchInput /> */}
                     </div>
                 </div>
