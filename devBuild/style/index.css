@@ -171,8 +171,7 @@ a.left_group_item{
     cursor:pointer;
 }
 .dialog_content{
-    float:left;
-    width:60%;
+    text-align :center;
 }
 .dialog_font{
     font-size: 18px;

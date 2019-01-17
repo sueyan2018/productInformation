@@ -24,13 +24,13 @@ class Brand extends React.Component {
         var list = this.state.data.map(function (brand) {
             //return <li key={client.id}><p>{client.clientName}</p></li>
             return <a className="left_group_item" title={brand.brandDescription} onClick={() => {
-                ReactDOM.render(<Item url="http://localhost:8080/procurement/itemList" pageNumber="1" brand={brand.brandId} />, document.getElementById('item'));
+                ReactDOM.render(<Item url="http://13.229.67.79:8080/procurement/itemList" pageNumber="1" brand={brand.brandId} />, document.getElementById('item'));
             }}>{brand.brandName}</a>
         });
         return (
             <div>
                 <a className="left_group_item" title="所有品牌" onClick={() => {
-                    ReactDOM.render(<Item url="http://localhost:8080/procurement/itemList" pageNumber="1" />, document.getElementById('item'));
+                    ReactDOM.render(<Item url="http://13.229.67.79:8080/procurement/itemList" pageNumber="1" />, document.getElementById('item'));
                 }}>所有品牌</a>
                 {list}
             </div>);

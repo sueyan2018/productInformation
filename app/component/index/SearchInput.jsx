@@ -22,7 +22,7 @@ class SearchInput extends React.Component {
     handlePost(){
         const {inpValu} = this.state;
         console.log(inpValu);
-        ReactDOM.render(<Item url="http://localhost:8080/procurement/itemList" pageNumber="1" itemName={inpValu} />, document.getElementById('item'));
+        ReactDOM.render(<Item url="http://13.229.67.79:8080/procurement/itemList" pageNumber="1" itemName={inpValu} />, document.getElementById('item'));
       };
 
     render() {

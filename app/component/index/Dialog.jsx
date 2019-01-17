@@ -1,11 +1,9 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogActions from '@material-ui/core/DialogActions';
-import IconButton from '@material-ui/core/IconButton';
 //import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 
@@ -109,14 +107,19 @@ class CustomizedDialogDemo extends React.Component {
 
                     <DialogContent>
                         <div>
-                            <img className="dialog_content" src={require('../../public/img/' + item.itemPic)} />
-                            <p className="dialog_font">{item.itemDescription}</p>
+                            <div className="dialog_content">
+                                <img src={require('../../public/img/' + item.itemPic)} />
+                            </div>
+                            <br />
+                            <div>
+                                <p className="dialog_font">{item.itemDescription}</p>
+                            </div>
                         </div>
                     </DialogContent>
 
                     <DialogActions>
-                        <FavoriteBorder style={{cursor:"pointer",marginLeft:"20px"}} onClick={this.handleAddCard} />
-                        <AddShoppingCart style={{cursor:"pointer"}} onClick={this.handleAddCard} />
+                        <FavoriteBorder style={{ cursor: "pointer", marginLeft: "20px" }} onClick={this.handleAddCard} />
+                        <AddShoppingCart style={{ cursor: "pointer" }} onClick={this.handleAddCard} />
                     </DialogActions>
                 </Dialog>
             </div>

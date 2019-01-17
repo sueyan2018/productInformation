@@ -33,7 +33,7 @@ class Item extends React.Component {
     handlePost = () => {
         const { InputValue } = this.state;
         let props = {
-            url :"http://localhost:8080/procurement/itemList",
+            url :"http://13.229.67.79:8080/procurement/itemList",
             itemName : InputValue,
             pageNumber : 1,
         }
