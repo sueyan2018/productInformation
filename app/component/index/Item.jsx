@@ -2,6 +2,7 @@ import React from 'react';
 import '../../public/css/index.pcss';
 import CustomizedDialogDemo from './Dialog'
 import Button from '@material-ui/core/Button';
+import ReactPaginate from 'react-paginate';
 
 class Item extends React.Component {
     constructor(props) {
@@ -33,14 +34,14 @@ class Item extends React.Component {
     handlePost = () => {
         const { InputValue } = this.state;
         let props = {
-            url :"http://13.229.67.79:8080/procurement/itemList",
-            itemName : InputValue,
-            pageNumber : 1,
+            url: "http://localhost:8080/procurement/itemList",
+            itemName: InputValue,
+            pageNumber: 1,
         }
         this.getItems(props);
     };
 
-    getItems = (props) =>{
+    getItems = (props, selected) => {
         console.log(props.url);
         var itemThis = this;
 
@@ -50,7 +51,7 @@ class Item extends React.Component {
                 "brand": props.brand,
                 "catalog": props.catalog,
                 "itemName": props.itemName,
-                "pageNumber": props.pageNumber,
+                "pageNumber": selected = null ? props.pageNumber : selected,
             }),   //请求体
 
             headers: {
@@ -67,6 +68,12 @@ class Item extends React.Component {
             })
         })
     }
+
+    handlePageClick = data => {
+        let selected = data.selected;
+
+        getItems(this.props, selected);
+    };
 
     render() {
         console.log(this.state.data.itemList);
@@ -93,6 +100,22 @@ class Item extends React.Component {
         //         <img src={require('../../public/img/test.jpg')} />
         //     </li>
         // );
+        let page = this.state.data.itemCount == 0 ? null :(
+            <div id="react-paginate" style={{fontSize:"16px",textAlign:"center"}}>
+                <ReactPaginate
+                    previousLabel={'⬅'}
+                    nextLabel={'➡'}
+                    breakLabel={'...'}
+                    breakClassName={'break-me'}
+                    pageCount={Math.ceil(this.state.data.itemCount / 20)}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={this.handlePageClick}
+                    containerClassName={'pagination'}
+                    subContainerClassName={'pages pagination'}
+                    activeClassName={'active'}
+                />
+            </div>);
         return (
             <div>
                 <div className="right_search">
@@ -114,6 +137,9 @@ class Item extends React.Component {
                         {list}
                     </ul>
                 </div>
+                <div className="cl"></div>
+                <br />
+                {page}
             </div>
         );
     }
